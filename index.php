@@ -48,9 +48,6 @@ require 'connection.php';
                         <a class="nav-link" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
@@ -64,7 +61,7 @@ require 'connection.php';
         <div class="row my-2">
             <div class="col-md">
                 <h3 class="text-center fw-bold text-uppercase">EMPLOYEE INFORMATION</h3>
-                <hr>
+                <hr Style="height: 2px;">
             </div>
         </div>
         <div class="row my-2">
@@ -79,26 +76,24 @@ require 'connection.php';
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">ADD</a></li>
     <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@getbootstrap">UPDATE</a></li>
-    <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">READ</a></li>
-    <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">DELETE</a></li>
+    <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4" data-bs-whatever="@getbootstrap">DELETE</a></li>
   </ul>
 </div>  
-                    <div class="btn-group">
 
-        
-        
+        <!-- ADD -->
+                    <div class="btn-group">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Record</h5>
+                <h5 class="modal-title" id="exampleModalLabel">ADD RECORD</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="AddData.php" method="POST">
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input type="text" class="form-control" id="1" placeholder="Name" name="name">
+                <input type="text" class="form-control" id="1" placeholder="Name" name="name" required>
                 </div>
                 <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">Address</label>
@@ -152,8 +147,102 @@ require 'connection.php';
         </div>
         </form>
 
+        <!-- UPDATE -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">UPDATE RECORD</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                    <div class="card-body">
+                        <form action="update.php" method="POST">
+                            <div class="form-group mb-3">
+                                <label for="">Student ID</label>
+                                <input type="text" name="stud_id" class="form-control" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="">Name</label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Address</label>
+                <input type="text" class="form-control" id="2" placeholder="Address" name="address">
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Birth Date</label><br>
+                <input type="date" id="birthdaytime" name="birthdate">
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Age</label>
+                <input type="text" class="form-control" id="4" placeholder="Age" name="age">
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Civil Status</label>
+                <select name="civilstat" id="civilstat">
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Separated">Separated</option>
+                <option value="Widowed">Widowed</option>
+                </select>
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+                <input type="number" class="form-control" id="7" placeholder="Contact Number" name="contactnum">
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Salary</label>
+                <input type="number" class="form-control" id="8" placeholder="Salary" name="salary">
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Status</label><br>
+                <input type="checkbox" id="1" name="active" value="Active">
+                <label for="Active">Active</label><br>
+                <input type="checkbox" id="2" name="active" value="Inactive">
+                <label for="Inactive">Inactive</label><br>
+                </div>
+                            <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" name="update_stud_data">UPDATE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- CLOSE UPDATE -->
 
-                <a href="" target="_blank" class="btn btn-success ms-1"><i class="bi bi-file-earmark-spreadsheet-fill"></i>&nbsp;Print</a>
+        <!-- DELETE -->
+        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">DELETE RECORD</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="Delete.php" method="POST">
+                <div class="form-group mb-3">
+                 <label for="">Employee No.</label>
+                 <input type="text" name="delete_stud_id" class="form-control" >
+                </div>   
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" name="stud_delete_btn">DELETE</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- CLOSE DELETE -->
+
+        <!-- tbl1 -->
             </div>
         </div>
         <div class="row my-3">
@@ -161,8 +250,8 @@ require 'connection.php';
                 <table id="data" class="table table-striped table-responsive table-hover text-center" style="width:100%">
                     <thead class="table-dark">
                         <tr>
-                            <th>No.</th>
-                            <th>Name</th>
+                            <th>ID</th>
+                            <th>Employee Name</th>
                             <th>Address</th>
                             <th>Birth Date</th>
                             <th>Age</th>
@@ -189,17 +278,70 @@ require 'connection.php';
                                 <td>" . $row["civilstat"] . "</td>
                                 <td>" . $row["contactnum"] . "</td>
                                 <td>" . $row["salary"] . "</td>
-                            </tr>";
+                                <td>" . $row["isactive"] . "</td>
+                                
+                            </tr>"
+                            ;
                         }
+                        
                         ?>
 
                     </tbody>
                     
                 </table>
+                <br>
+                <hr Style="height: 2px;">
+                <br>
+                <!-- tbl2 -->
+                <div class="row my-3">
+            <div class="col-md">
+                <table id="data" class="table table-striped table-responsive table-hover text-center" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Birth Date</th> 
+                            <th>ID</th>
+                            <th>Employee Name</th>
+                            <th>Salary</th>
+                        <tfoot>
+                            <tr>
+                                <th colspan="1">GRAND TOTAL</th>
+                                <th colspan="1"></th>
+                                <th colspan="1"></th>
+                                <th id="total_order"></th>
+                            </tr>
+                        </tfoot>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM employeefile";
+                        $result = $connect->query($sql);
+
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                            <td>" . $row["birthdate"] . "</td>
+                                <td>" . $row["recid"] . "</td>
+                                <td>" . $row["fullname"] . "</td>
+                                <td>" . $row["salary"] . "</td>
+                                
+                            </tr>"
+                            ;
+                        }
+                        
+                        ?>
+
+                    </tbody>
+                    
+                </table>
+                <a href="export.php" target="_blank" class="btn btn-success ms-1"><i class="bi bi-file-earmark-spreadsheet-fill"></i>&nbsp;Print</a>
+            </div>
+        </div>
             </div>
         </div>
     </div>
-
+    
+                        
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
