@@ -30,7 +30,7 @@ require 'connection.php';
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <!-- Own CSS -->
     <link rel="stylesheet" href="css/style.css">
-
+    <script src="script.js"></script>
     <title>LSTV</title>
 </head>
 
@@ -47,6 +47,15 @@ require 'connection.php';
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Home</a>
                     </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">ACTION</a>
+                    
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">ADD</a></li>
+                        <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@getbootstrap">UPDATE</a></li>
+                        <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4" data-bs-whatever="@getbootstrap">DELETE</a></li>
+                    </ul>
+                </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                     </li>
@@ -68,16 +77,6 @@ require 'connection.php';
             <div class="col-md">
 
                     <div class="btn-group">
-
-  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Action
-  </button>
-
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">ADD</a></li>
-    <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@getbootstrap">UPDATE</a></li>
-    <li><a class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4" data-bs-whatever="@getbootstrap">DELETE</a></li>
-  </ul>
 </div>  
 
         <!-- ADD -->
@@ -100,41 +99,42 @@ require 'connection.php';
                 <input type="text" class="form-control" id="2" placeholder="Address" name="address">
                 </div>
                 <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Birth Date</label><br>
-                <input type="date" id="birthdaytime" name="birthdate">
+                    <label for="exampleFormControlInput1" class="form-label">Birth Date</label><br>
+                    <input type="date" id="birthdaytime" name="birthdate">
                 </div>
                 <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Age</label>
-                <input type="text" class="form-control" id="4" placeholder="Age" name="age">
+                    <label for="exampleFormControlInput1" class="form-label">Age</label>
+                    <input type="text" class="form-control" id="4" placeholder="Age" name="age">
                 </div>
                 <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Gender</label>
-                <input type="radio" name="gender" value="Male"> Male
-                <input type="radio" name="gender" value="Female"> Female
+                    <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                    <input type="radio" name="gender" value="Female"> Other
                 </div>
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Civil Status</label>
                 <select name="civilstat" id="civilstat">
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Separated">Separated</option>
-                <option value="Widowed">Widowed</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Separated">Separated</option>
+                    <option value="Widowed">Widowed</option>
                 </select>
                 </div>
                 <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
-                <input type="number" class="form-control" id="7" placeholder="Contact Number" name="contactnum">
+                    <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+                    <input type="number" class="form-control" id="7" placeholder="Contact Number" name="contactnum">
                 </div>
                 <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Salary</label>
-                <input type="number" class="form-control" id="8" placeholder="Salary" name="salary">
+                    <label for="exampleFormControlInput1" class="form-label">Salary</label>
+                    <input type="number" class="form-control" id="8" placeholder="Salary" name="salary">
                 </div>
                 <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Status</label><br>
-                <input type="checkbox" id="1" name="active" value="Active">
-                <label for="ACtive">Active</label><br>
-                <input type="checkbox" id="2" name="active" value="Inactive">
-                <label for="Inactive">Inactive</label><br>
+                    <label for="exampleFormControlInput1" class="form-label">Status</label><br>
+                    <input type="checkbox" id="1" name="active" value="Active">
+                    <label for="ACtive">Active</label><br>
+                    <input type="checkbox" id="2" name="active" value="Inactive">
+                    <label for="Inactive">Inactive</label><br>
                 </div>
                 
             </div>
@@ -181,6 +181,7 @@ require 'connection.php';
                 <label for="exampleFormControlInput1" class="form-label">Gender</label>
                 <input type="radio" name="gender" value="Male"> Male
                 <input type="radio" name="gender" value="Female"> Female
+                <input type="radio" name="gender" value="Female"> Other
                 </div>
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Civil Status</label>
@@ -292,7 +293,11 @@ require 'connection.php';
                 <br>
                 <hr Style="height: 2px;">
                 <br>
+
                 <!-- tbl2 -->
+                <div class="col-md">
+                <h3 class="text-center fw-bold text-uppercase">PROBLEM 1</h3>
+            </div>
                 <div class="row my-3">
             <div class="col-md">
                 <table id="data" class="table table-striped table-responsive table-hover text-center" style="width:100%">
@@ -302,14 +307,121 @@ require 'connection.php';
                             <th>ID</th>
                             <th>Employee Name</th>
                             <th>Salary</th>
-                        <tfoot>
+                       
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $total_salary = 0;
+                        $sql = "SELECT * FROM employeefile order by fullname asc";
+                        $result = $connect->query($sql);
+                        $name1 = "";
+                        $name2 = "";
+
+                        while($row = $result->fetch_assoc()) {
+                            $sub = $row["salary"];
+                            $total_salary += $sub;
+                            echo "<tr>
+                            <td>" . $row["birthdate"] . "</td>
+                                <td>" . $row["recid"] . "</td>
+                                <td id='fname'>" . $row["fullname"] . "</td>
+                                <td>" . $row["salary"] . "</td>
+                            </tr>";
+                            echo "<tr>
+                            <td>SUB TOTAL </td>
+                                <td></td>
+                                <td></td>
+                                <td>" . $row["salary"] . "</td>
+                            </tr>";
+                        }
+
+
+                        ?>
+                    </tbody>
+                    <tfoot>
                             <tr>
                                 <th colspan="1">GRAND TOTAL</th>
                                 <th colspan="1"></th>
                                 <th colspan="1"></th>
-                                <th id="total_order"></th>
+                                <th id="total_order"><?= $total_salary?></th>
                             </tr>
                         </tfoot>
+                </table>
+                <a href="export.php" target="_blank" class="btn btn-success ms-1"><i class="bi bi-file-earmark-spreadsheet-fill"></i>&nbsp;Print</a>
+            </div>
+        </div>
+        </table>
+                <br>
+                <hr Style="height: 2px;">
+                <br>
+                <div class="col-md">
+                <h3 class="text-center fw-bold text-uppercase">PROBLEM 2</h3>
+            </div>
+                <!-- tbl3 -->
+                <div class="row my-3">
+            <div class="col-md">
+                <table id="data" class="table table-striped table-responsive table-hover text-center" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Address</th> 
+                            <th>Employee Name</th>
+                            <th>Salary</th>
+                       
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $total_salary = 0;
+                        $sql = "SELECT * FROM employeefile order by fullname asc";
+                        $result = $connect->query($sql);
+                        $name1 = "";
+                        $name2 = "";
+
+                        while($row = $result->fetch_assoc()) {
+                            $sub = $row["salary"];
+                            $total_salary += $sub;
+                            echo "<tr>
+                            <td>" . $row["address"] . "</td>
+                                <td id='fname'>" . $row["fullname"] . "</td>
+                                <td>" . $row["salary"] . "</td>
+                            </tr>";
+                            echo "<tr>
+                            <td>SUB TOTAL </td>
+                                <td></td>
+                                <td>" . $row["salary"] . "</td>
+                            </tr>";
+                        }
+
+
+                        ?>
+                    </tbody>
+                    <tfoot>
+                            <tr>
+                                <th colspan="1">GRAND TOTAL</th>
+                                <th colspan="1"></th>
+                                <th id="total_order"><?= $total_salary?></th>
+                            </tr>
+                        </tfoot>
+                </table>
+                <a href="export2.php" target="_blank" class="btn btn-success ms-1"><i class="bi bi-file-earmark-spreadsheet-fill"></i>&nbsp;Print</a>
+            </div>
+        </div>
+        <!-- tbl4 -->
+                <br>
+                <hr Style="height: 2px;">
+                <br>
+                <div class="col-md">
+                <h3 class="text-center fw-bold text-uppercase">PROBLEM 3</h3>
+            </div>
+        <div class="row my-3">
+            <div class="col-md">
+                <table id="data" class="table table-striped table-responsive table-hover text-center" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Address</th>
+                            <th>Employee Name</th>
 
                         </tr>
                     </thead>
@@ -320,11 +432,40 @@ require 'connection.php';
 
                         while($row = $result->fetch_assoc()) {
                             echo "<tr>
-                            <td>" . $row["birthdate"] . "</td>
+                                <td>" . $row["address"] . "</td>
+                                <td>" . $row["fullname"] . "</td>                       
+                            </tr>"
+                            ;
+                        }
+                        ?>
+
+                    </tbody>
+                </table>
+                <div class="row my-3">
+            <div class="col-md">
+                <table id="data" class="table table-striped table-responsive table-hover text-center" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Age</th>
+                            <th>Birth Date</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM employeefile";
+                        $result = $connect->query($sql);
+                        
+
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr>
                                 <td>" . $row["recid"] . "</td>
+                                <td>" . $row["age"] . "</td>
+                                <td>" . $row["birthdate"] . "</td>
                                 <td>" . $row["fullname"] . "</td>
-                                <td>" . $row["salary"] . "</td>
-                                
+                                <td>" . $row["address"] . "</td> 
                             </tr>"
                             ;
                         }
@@ -334,12 +475,147 @@ require 'connection.php';
                     </tbody>
                     
                 </table>
-                <a href="export.php" target="_blank" class="btn btn-success ms-1"><i class="bi bi-file-earmark-spreadsheet-fill"></i>&nbsp;Print</a>
+                <!-- TBL6 -->
+
+                <br>
+                <hr Style="height: 2px;">
+                <br>
+                <div class="col-md">
+                <h3 class="text-center fw-bold text-uppercase">PROBLEM 4</h3>
+            </div> 
+            </div>
             </div>
         </div>
+        </div>
+        </form>
+                <div class="row my-3">
+            <div class="col-md">
+                <table id="data" class="table table-striped table-responsive table-hover text-center" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>                            
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Month</th>
+                            <th>Type</th>
+                        </tr>
+                        
+                    </thead>
+                    
+                    <tbody>
+
+                        <?php
+                        $sql5 = "SELECT * FROM employeefile";
+                        $result5 = $connect->query($sql5);
+
+                        while($row = $result5->fetch_assoc()) {
+                            echo "<tr>
+                            
+                                </td>
+                                <td>" . $row["recid"] . "</td>
+                                <td>" . $row["fullname"] . "</td>
+                                <td>" . $row["birthdate"] . "</td>
+                                <td>" . $row["recid"] . "</td>
+                                <td>" . $row["isactive"] . "</td> 
+                            </tr>"
+                            ;
+                        }
+                        
+                        ?>
+               
+
+                    </tbody>
+                    
+                </table>
+
+                 <!-- TBL7 -->
+
+                 <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card mt-5">
+                <div class="col-md">
+                <h3 class="text-center fw-bold text-uppercase">PROBLEM 5</h3>
             </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+
+                <?php 
+                    if(isset($_SESSION['status']))
+                    {
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong></strong> <?php echo $_SESSION['status']; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php
+                        unset($_SESSION['status']);
+                    }
+                ?>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <form action="dmr.php" method="POST">
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                <button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger">Delete</button><br><br>
+                                    <tr>
+                                        <th></th>
+                                        <th>ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Address</th>
+                                        <th>Civil Status</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <?php
+                                        $con = mysqli_connect("localhost","root","","employeedb");
+
+                                        $query = "SELECT * FROM employeefile";
+                                        $query_run  = mysqli_query($con, $query);
+
+                                        if(mysqli_num_rows($query_run) > 0)
+                                        {
+                                            foreach($query_run as $row)
+                                            {
+                                                ?>
+                                                <tr>
+                                                    <td style="width:10px; text-align: center;">
+                                                        <input type="checkbox" name="stud_delete_id[]" value="<?= $row['recid']; ?>">
+                                                    </td>
+                                                    <td><?= $row['recid']; ?></td>
+                                                    <td><?= $row['fullname']; ?></td>
+                                                    <td><?= $row['address']; ?></td>
+                                                    <td><?= $row['civilstat']; ?></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                                <tr>
+                                                    <td colspan="5">No Record Found</td>
+                                                </tr>
+                                            <?php
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
+                    
+                    
+        </div>
+    </div>
+</div>
     
                         
     <!-- Bootstrap -->

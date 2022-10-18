@@ -12,9 +12,8 @@ header("Content-Disposition: attachment; filename=Employeeinfo.xls");
 <table class="text-center" border="1">
     <thead class="text-center">
         <tr>
-        <th>No.</th>
+        <th>Address</th>
          <th>Employee Name</th>
-         <th>Birth Date</th>
          <th>Salary</th>
 
         </tr>
@@ -33,26 +32,21 @@ header("Content-Disposition: attachment; filename=Employeeinfo.xls");
                             $sub = $row["salary"];
                             $total_salary += $sub;
                             echo "<tr>
-                            <td>" . $row["birthdate"] . "</td>
-                                <td>" . $row["recid"] . "</td>
+                            <td>" . $row["address"] . "</td>
                                 <td id='fname'>" . $row["fullname"] . "</td>
                                 <td>" . $row["salary"] . "</td>
                             </tr>";
                             echo "<tr>
                             <td>SUB TOTAL </td>
                                 <td></td>
-                                <td></td>
                                 <td>" . $row["salary"] . "</td>
                             </tr>";
                         }
-
-
                         ?>
                     </tbody>
                     <tfoot>
                             <tr>
                                 <th colspan="1">GRAND TOTAL</th>
-                                <th colspan="1"></th>
                                 <th colspan="1"></th>
                                 <th id="total_order"><?= $total_salary?></th>
                             </tr>
